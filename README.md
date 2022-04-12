@@ -1,10 +1,16 @@
 # Domain Model objects on AWS Lambda with Hexagonal Architecture Sample
 
+[-[Readme in Japanese](README.ja.md)-]
+
 ## What is this project?
 
 This project contains a Lambda function with domain model objects. By using Hexagonal Architecture (Ports and Adapters pattern), it separates domain model from other layer code.
 
-The repository shows you how to implement your classes on the function. It includes sample domain models regarding a vaccination reservation system. With ports and adapters classes, they are loosely coupled from infrastructure code such as accessing to DynamoDB table. The application is designed by the concept of [Hexagonal Architecture](<https://en.wikipedia.org/wiki/Hexagonal_architecture_(software)>) or ports and adapters architecture by [Alistair Cockburn](https://en.wikipedia.org/wiki/Alistair_Cockburn).
+The [Hexagonal Architecture](<https://en.wikipedia.org/wiki/Hexagonal_architecture_(software)>), or ports and adapters architecture, is an architectural pattern used in software design. The hexagonal architecture was invented by [Dr. Alistair Cockburn](https://en.wikipedia.org/wiki/Alistair_Cockburn).
+
+![Hexaglnal Architecture](hexagonal_architecture.png)
+
+The repository shows you how to implement your classes on the function. It includes sample domain models regarding a simple vaccination reservation system. With ports and adapters classes, domain model objects are loosely coupled from infrastructure code such as accessing to DynamoDB table.
 
 This application also uses [inversion of control](https://en.wikipedia.org/wiki/Inversion_of_control) concept to inject ports and adapters classes. It enables you to execute unit testing more easily because you can inject dummy instances into target classes. For more details, see sample unit testing code in this project (./tests/unit folder).
 
@@ -86,10 +92,10 @@ $ python -m pytest tests/unit -v
 
 ## Cleanup
 
-To delete the sample application that you created, use the AWS CLI. Assuming you used your project name for the stack name, you can run the following:
+To delete the sample application that you created, use the SAM CLI. Assuming you used your project name for the stack name, you can run the following:
 
 ```bash
-aws cloudformation delete-stack --stack-name [Stack Name]
+sam delete --stack-name [Stack Name]
 ```
 
 ## Resources
