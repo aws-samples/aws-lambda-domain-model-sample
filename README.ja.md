@@ -60,6 +60,16 @@ $ setup/add_ddb_data.sh
 
 ```
 
+## Amazon API Gateway を通じて Lambda 関数を実行する
+
+[Your api endpoint address] を SAM Deploy の output Value に置き換えてください.
+
+```bach
+$ curl -X POST -H "Content-Type:application/json" -d "{\"recipient_id\":\"1\", \"slot_id\":\"1\"}" [Your api endpoint address]
+
+{"message": "The recipient's reservation is added."}
+```
+
 ## ビルドしてローカルでテストするために SAM CLI を使用する
 
 `sam build --use-container` コマンドでアプリケーションをビルドします。
